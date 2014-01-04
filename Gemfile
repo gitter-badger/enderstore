@@ -9,6 +9,11 @@ gem 'rails', '3.2.12'
 gem 'pg'
 gem 'rails_12factor', group: :production
 
+group :development, :test do #sqlite3 is not supported on Heroku
+   gem 'sqlite3'
+   gem 'unicorn'
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
