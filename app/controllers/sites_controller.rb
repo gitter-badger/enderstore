@@ -7,10 +7,10 @@ class SitesController < ApplicationController
   end
 
   def show
+throw request.subdomain
     subdomain = request.subdomain
       if /^(\w+)\./.match(subdomain)
         subdomain = (/^(\w+)\./.match(subdomain))[1] #if Rails.env.development? #nitrous development preview includes a multi-segment subdomain
-throw subdomain
         @current_site = Site.find_by_name(subdomain.downcase)
         puts @current_site
       end
