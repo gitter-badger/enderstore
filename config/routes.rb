@@ -1,4 +1,11 @@
 Enderstore::Application.routes.draw do
+
+  resources :sites, :only => [:show, :index]
+  constraints(Subdomain) do
+    match '/' => 'sites#show'
+  end
+  root :to => "sites#index"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
