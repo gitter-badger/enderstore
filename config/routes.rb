@@ -4,7 +4,7 @@ Enderstore::Application.routes.draw do
   constraints(Subdomain) do
     match '/' => 'sites#show'
   end
-  root :to => "sites#index"
+  root :to => "sites#show"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
