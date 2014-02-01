@@ -13,6 +13,7 @@ class SitesController < ApplicationController
         @current_site = Site.find_by_name(subdomain.downcase)
         puts @current_site
       end
+throw "HALT" if @current_site.nil?
     redirect_to action: 'index', status: 303 if @current_site.nil?
   end
   
