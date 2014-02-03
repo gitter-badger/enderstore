@@ -1,10 +1,30 @@
-<h1>Sites#index</h1>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <nav class="navbar navbar-default" role="navigation" style="padding-left: 32px;">
 
-Subdomain is <%= @subdomain %>
-<p>
-  <ul>
-    <% @sites.each do |s| %>
-    <li><%= s.title %></li>
-    <% end %>
-  </ul>
-</p>
+       <span class="lead"><strong><%= @sites.first.domain.upcase %></strong>&nbsp;|&nbsp;Other Sites To Explore</span>
+       <% @all_domains.each do |d| %>
+         <%= link_to d, "http://#{d}", class: "btn btn-primary navbar-btn" unless d == @sites.first.domain %>
+       <% end %>
+       
+     </nav>
+    </div>
+
+  <div class="row">
+      <div class="span4">
+        <ul>
+          <% @sites.each do |s| %>
+          <li><%= link_to s.title, controller: "sites", action: "create", id: s.id, :title => "Register #{s.title}#{s.domain} for yourself" %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="span8">
+        <p>Dummy Text</p>
+      </div>
+    </div>
+
+  </div>
+  <hr>
+  <div class="panel-footer">
+<p>&copy; 2014 Websembly, LLC</p>
+</div>

@@ -1,5 +1,5 @@
-<h1>Sites#show</h1>
-<p>Find me in app/views/sites/show.html.erb</p>
-<%= @current_site.inspect %>
-
-Subdomain is <%= @subdomain %>
+<div class="jumbotron">
+  <h1><%= @current_site.title %></h1>
+      <p><%= @current_site.content %></p>
+  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+</div>
