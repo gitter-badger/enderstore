@@ -14,6 +14,7 @@
     <div class="col-md-8 content">
       <h2>Why Are You Here</h2><h3>A History Lesson</h3>
       <p>When the Internet was being devised there was a lot of careful planning and thought for the future.  A large amount of effort focused on the way in which machine addresses (that would uniquely identify any computer in a network like the Internet) could be translated to 'humanly consumable' monikers.  Part of the design of the Domain Naming System included support for Subdomains.</p>
+      <%= image_tag "subdomain_example.png", :style =>  "width:100%;height:auto;padding: 2px;" %>
       <h3>A Server By Any Other Name..</h3>
       <p>A Subdomain represents a hierarchical sub-division of a primary Domain.  The most common use of this, prevalent during the earliest days of the Internet, was to partition only a portion of your corporate server for access from the outside world.  The "newly invented" thing known as the <strong>World Wide Web</strong> had connections to your server only through a subdomain (prefix) of "WWW".  Likewise, individual segments of any computer network could be differentiated and accessed by subdomains.</p>
       <p>With the immense [explosive] growth of the Internet, the 'standard' WWW subdomain fell away.  Today many Internet resources exist solely for access to the World Wide Web rather than simply as fragments of a larger entity.  And so, the idea of Subdomains has slipped into the backgroud.</p>
@@ -22,8 +23,7 @@
       <p>You have just witnessed an example of this with <%= @sites.first.domain %>!  And the others - represented as buttons at the top of this page - work in a similar fashion.</p>
         
     </div>
-
-    <div class="col-md-2">
+    <div class="col-md-2" style="padding-top: 10%;">
       <h4>Available Sub-Domain</h4>
       <h5>Claim yours</h5>
       <ul>
