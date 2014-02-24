@@ -28,7 +28,7 @@
       <h5>Claim yours</h5>
       <ul>
         <% @sites.each do |s| %>
-        <%= s.url unless s.url.nil? %><br />
+        <%= s.url.size %><br />
           <% if s.url.nil? %>
             <li title="Register <%= s.title %> for yourself"><%= link_to s.title, controller: "sites", action: "create", id: s.id %></li>
           <% else %>
