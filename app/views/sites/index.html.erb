@@ -23,12 +23,16 @@
       <p>You have just witnessed an example of this with <%= @sites.first.domain %>!  And the others - represented as buttons at the top of this page - work in a similar fashion.</p>
         
     </div>
-    <div class="col-md-2" style="padding-top: 10%;">
-      <h4>Available Sub-Domain</h4>
+    <div class="col-md-2" style="padding-top: 5%;">
+      <h3>Available Sub-Domain</h3>
       <h5>Claim yours</h5>
       <ul>
         <% @sites.each do |s| %>
-        <li><%= link_to s.title, controller: "sites", action: "create", id: s.id, :title => "Register #{s.title}#{s.domain} for yourself" %></li>
+          <% if s.url.nil? %>
+            <li title="Register <%= s.title%> for yourself"><%= link_to s.title, controller: "sites", action: "create", id: s.id %></li>
+          <% else %>
+        <li class="unavailable"><%= link_to s.title, "#{s.url}", :title => "#{s.title} has been claimed" %></li>
+          <% end %>
         <% end %>
       </ul>
     </div>
