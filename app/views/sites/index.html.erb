@@ -28,8 +28,9 @@
       <h5>Claim yours</h5>
       <ul>
         <% @sites.each do |s| %>
+        <%= s.url.nil? %><br />
           <% if s.url.nil? %>
-            <li title="Register <%= s.title%> for yourself"><%= link_to s.title, controller: "sites", action: "create", id: s.id %></li>
+            <li title="Register <%= s.title %> for yourself"><%= link_to s.title, controller: "sites", action: "create", id: s.id %></li>
           <% else %>
         <li class="unavailable"><%= link_to s.title, "#{s.url}", :title => "#{s.title} has been claimed" %></li>
           <% end %>
