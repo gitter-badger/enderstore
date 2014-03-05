@@ -8,8 +8,10 @@ class SitesController < ApplicationController
   def index
     @domain = request.domain
     test_domain_setup
-    @sites = Site.find_all_by_domain(@domain)
     @all_domains = Site.uniq.pluck(:domain)
+    @sites = Site.find_all_by_domain(@domain)
+    @avail_sites = Site.find(:all, :conditions => {:domain => @domain, :url => nil })
+    @claimed_sites = Site.where("domain = '#{@domain}'").where("url <> ''")
   end
 
   def show

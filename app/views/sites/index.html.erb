@@ -21,18 +21,19 @@
       <h3>Untapped Potential?</h3>
       <p>But we really believe the Subdomain feels a bit neglected and lonely.  Domain names have been cleverly paired with Top Level Domains (TLD) to form unique labels for services like Bit.ly and Goo.gl.  This method utilizes Country-specific TLDs as endings for common words or phrases.  We propose taking this idea <em>in the other direction</em>; applying subdomains in a similarly clever way to form highly memorable Internet addresses.</p>
       <p>You have just witnessed an example of this with <%= @sites.first.domain %>!  And the others - represented as buttons at the top of this page - work in a similar fashion.</p>
-        
     </div>
-    <div class="col-md-2" style="padding-top: 5%;">
+    <div class="col-md-2">
+      <h4>Examples <sup>(claimed)</sup></h4>
+      <ul>
+      <% @claimed_sites.each do |u| %>
+        <li class="claimed" title="<%= u.content %>"><%= link_to u.title, u.url %></li>
+      <% end %>
+      </ul>
       <h3>Available Sub-Domain</h3>
       <h5>Claim yours</h5>
       <ul>
-        <% @sites.each do |s| %>
-          <% if s.url.nil? %><!-- NULL in the database -->
+        <% @avail_sites.each do |s| %>
             <li title="Register <%= s.title %> for yourself"><%= link_to s.title, controller: "sites", action: "create", id: s.id %></li>
-          <% else %>
-        <li class="unavailable"><%= link_to s.title, "#{s.url}", :title => "#{s.title} has been claimed" %></li>
-          <% end %>
         <% end %>
       </ul>
     </div>

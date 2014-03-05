@@ -2,8 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.unavailable {
-  display: none; /* temporary */
+li.claimed a, li.claimed a:link, li.claimed a:visited {
+  font-size: 80%;
+  color: #cccccc;
+}
+
+li.claimed a:hover {
+  font-weight: bolder;
+  color: red;
 }
 
 .content
