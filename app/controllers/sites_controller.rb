@@ -27,7 +27,7 @@ class SitesController < ApplicationController
     if @current_site.nil?
       redirect_to action: 'index', status: 303
     else
-      redirect_to "http://www.thomparkin.com" unless @current_site.url.nil? #"http://#{@current_site.url}/" unless @current_site.url.nil?
+      "http://#{@current_site.url}/" unless @current_site.url.nil?
     end
   end
   
